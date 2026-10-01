@@ -1,0 +1,73 @@
+{
+  "steps": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 30
+  },
+  "wall_s": {
+    "mean": 1.969,
+    "std": 0.0179,
+    "min": 1.9566,
+    "max": 2.0095,
+    "n": 30
+  },
+  "cpu_run_pct": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 30
+  },
+  "rss_mean_mb": {
+    "mean": 3.8,
+    "std": 0.0,
+    "min": 3.8,
+    "max": 3.8,
+    "n": 30
+  },
+  "lat_total_ms": {
+    "mean": 0.4023,
+    "std": 0.1743,
+    "min": 0.1676,
+    "max": 1.2231,
+    "n": 30
+  },
+  "lat_engine_ms": {
+    "mean": 0.8001,
+    "std": 0.2021,
+    "min": 0.4823,
+    "max": 1.7107,
+    "n": 30
+  },
+  "lat_block_ms": {
+    "mean": -0.3978,
+    "std": 0.0851,
+    "min": -0.6182,
+    "max": -0.2789,
+    "n": 30
+  },
+  "lat_motion_onset_ms": {
+    "mean": 6.0877,
+    "std": 4.3768,
+    "min": 0.8273,
+    "max": 16.3817,
+    "n": 30
+  },
+  "estop_cmd_ms": {
+    "mean": 0.1096,
+    "std": 0.0672,
+    "min": 0.0496,
+    "max": 0.3133,
+    "n": 30
+  },
+  "estop_event_ms": {
+    "mean": 12.8292,
+    "std": 17.3785,
+    "min": 0.9561,
+    "max": 51.1909,
+    "n": 30
+  },
+  "markers_complete_rate": 1.0
+}

@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020617;
+  --color-surface: #0F172A;
+  --color-surface-light: #1E293B;
+  --color-primary: #0369A1;
+  --color-primary_glow: #38BDF8;
+  --color-accent: #10B981;
+  --color-accent_glow: #34D399;
+  --color-danger: #E11D48;
+  --color-danger_glow: #FB7185;
+
+  --font-sans: "Fira Sans", system-ui, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --background-image-cyber-grid: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  --background-image-glass-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+  --shadow-neon-primary: 0 0 10px rgba(56, 189, 248, 0.3), 0 0 20px rgba(56, 189, 248, 0.2);
+  --shadow-neon-accent: 0 0 10px rgba(52, 211, 153, 0.3), 0 0 20px rgba(52, 211, 153, 0.2);
+  --shadow-neon-danger: 0 0 10px rgba(251, 113, 133, 0.3), 0 0 20px rgba(251, 113, 133, 0.2);
+  --shadow-glass: 0 4px 30px rgba(0, 0, 0, 0.5);
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: fadeIn 0.3s ease-out forwards;
+  --animate-neon-pulse: neonPulse 2.4s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes neonPulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4), 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+
+    50% {
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.7), 0 0 40px rgba(56, 189, 248, 0.35), 0 0 60px rgba(56, 189, 248, 0.15);
+    }
+  }
+}
+
+@layer base {
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    @apply bg-background text-slate-300 font-sans antialiased selection:bg-primary/30;
+  }
+}
+
+@layer components {
+
+  /* Glass card */
+  .glass-panel {
+    @apply bg-surface/60 backdrop-blur-md border border-white/5 shadow-glass rounded-xl;
+  }
+
+  /* Cyber button base */
+  .btn-cyber {
+    @apply relative overflow-hidden font-mono font-medium tracking-wide transition-all duration-300 rounded-lg active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-cyber-primary {
+    @apply bg-primary/20 text-primary_glow border border-primary/50 hover:bg-primary/30 hover:border-primary_glow hover:shadow-neon-primary;
+  }
+
+  .btn-cyber-accent {
+    @apply bg-accent/20 text-accent_glow border border-accent/50 hover:bg-accent/30 hover:border-accent_glow hover:shadow-neon-accent;
+  }
+
+  .btn-cyber-danger {
+    @apply bg-danger/20 text-danger_glow border border-danger/50 hover:bg-danger/30 hover:border-danger_glow hover:shadow-neon-danger;
+  }
+
+  /* Executing node — slow neon pulse */
+  .neon-pulse-executing {
+    animation: neonPulse 2.4s ease-in-out infinite;
+    border-color: rgba(56, 189, 248, 0.7) !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+  }
+
+  /* Node flagged by the graph compiler (cycle, disconnection, invalid topology) */
+  .node-error {
+    border-color: rgba(248, 113, 113, 0.8) !important;
+    background: rgba(248, 113, 113, 0.08) !important;
+    box-shadow: 0 0 15px rgba(248, 113, 113, 0.35);
+  }
+
+  /* Hide native number-input spinners — replaced by NodeNumberField's
+     themed steppers (native ones get stuck auto-repeating inside
+     React Flow nodes and clash with the design system) */
+  input[type='number'].no-spinner::-webkit-outer-spin-button,
+  input[type='number'].no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'].no-spinner {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-primary/50 transition-colors;
+  }
+}

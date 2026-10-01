@@ -1,0 +1,87 @@
+{
+  "steps": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "n": 30
+  },
+  "wall_s": {
+    "mean": 2.0164,
+    "std": 0.0154,
+    "min": 2.0057,
+    "max": 2.0623,
+    "n": 30
+  },
+  "cpu_run_pct": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 30
+  },
+  "rss_mean_mb": {
+    "mean": 3.8,
+    "std": 0.0,
+    "min": 3.8,
+    "max": 3.8,
+    "n": 30
+  },
+  "lat_total_ms": {
+    "mean": 0.4196,
+    "std": 0.2524,
+    "min": 0.2191,
+    "max": 1.3952,
+    "n": 30
+  },
+  "lat_engine_ms": {
+    "mean": 0.7822,
+    "std": 0.2814,
+    "min": 0.5181,
+    "max": 1.8725,
+    "n": 30
+  },
+  "lat_block_ms": {
+    "mean": -0.3626,
+    "std": 0.0809,
+    "min": -0.5982,
+    "max": -0.2563,
+    "n": 30
+  },
+  "lat_motion_onset_ms": {
+    "mean": 7.5089,
+    "std": 4.0694,
+    "min": 0.8075,
+    "max": 15.7599,
+    "n": 30
+  },
+  "ep_final_m": {
+    "mean": 0.0144,
+    "std": 0.0142,
+    "min": 0.0,
+    "max": 0.048,
+    "n": 30
+  },
+  "ep_yaw_deg": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 30
+  },
+  "final_x_m": {
+    "mean": 2.0144,
+    "std": 0.0142,
+    "min": 2.0,
+    "max": 2.048,
+    "n": 30
+  },
+  "final_y_m": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 30
+  },
+  "markers_complete_rate": 1.0
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>twobot_description</name>
+  <version>0.1.0</version>
+  <description>URDF model of the 2-DOF manipulator of UMNG research project IMP ING 4309 (elbow flexion/extension, wrist pronation/supination): kinematic chain, joint limits, inertial parameters, ros2_control position interface, STL meshes and an RViz visualization launch.</description>
+  <maintainer email="juancamilosilvacallejas@gmail.com">Juan Camilo Silva Callejas</maintainer>
+  <license>Apache-2.0</license>
+
+  <author email="juancamilosilvacallejas@gmail.com">Juan Camilo Silva Callejas</author>
+  <author>Fabián Parada Sepúlveda</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

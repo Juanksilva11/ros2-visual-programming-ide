@@ -1,0 +1,78 @@
+# Continuous Integration — runs the SQA suite on every push and PR.
+#
+# Two independent jobs:
+#   backend  — Rust unit tests + clippy inside the official ros:jazzy
+#              container (r2r generates ROS 2 message bindings at build
+#              time, so a sourced ROS environment is required to compile)
+#   frontend — ESLint, Vitest unit tests, and production build
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    name: Backend — cargo test + clippy (ROS 2 Jazzy)
+    runs-on: ubuntu-latest
+    container: ros:jazzy
+    defaults:
+      run:
+        working-directory: rust_app
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build dependencies (Rust toolchain + libclang for r2r bindgen)
+        run: |
+          apt-get update
+          apt-get install -y curl build-essential clang libclang-dev ros-jazzy-turtlesim
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+
+      - name: Cache cargo artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            rust_app/target
+          key: cargo-${{ runner.os }}-${{ hashFiles('rust_app/Cargo.lock') }}
+
+      - name: Clippy
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          cargo clippy
+
+      - name: Unit tests
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          cargo test
+
+  frontend:
+    name: Frontend — lint + vitest + build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web-client
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web-client/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Production build
+        run: npm run build

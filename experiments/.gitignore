@@ -1,0 +1,12 @@
+.venv/
+# Bolsas de rosbag2 de la campaña (200 MB): se publican aparte, no en git.
+# Se versiona solo la medición del salto navegador-backend (Sección 6.4).
+data/*
+!data/http_rtt_ms.json
+# Resultados agregados: se versionan summary.csv y aggregate.json (Anexo B);
+# las figuras PNG se regeneran con analyze.py.
+results/**/*.png
+# Marca de fin que crea rerun_gazebo.sh
+RERUN_DONE
+# Salida por defecto de export_pgfplots.py (se regenera)
+pgfplots/

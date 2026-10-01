@@ -1,0 +1,23 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Frecuencia de cálculo en Hz
+
+    # Este controlador lee la posición de las juntas y la publica (necesario para RViz)
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # Este es el controlador que moverá el brazo
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+# Configuración específica para mover el brazo
+arm_controller:
+  ros__parameters:
+    joints:
+      - elbow_joint
+      - wrist_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

@@ -1,0 +1,17 @@
+# Dependencias de Python de la campaña de medición (Capítulo 6 de la tesis).
+# Versiones exactas con las que se procesaron las 360 corridas
+# (Ubuntu 24.04, Python 3.12.3, ROS 2 Jazzy).
+#
+# Uso: con ROS 2 Jazzy activo (source /opt/ros/jazzy/setup.bash),
+#   python3 -m venv --system-site-packages .venv
+#   ./.venv/bin/pip install -r requirements.txt
+#
+# El entorno se crea con --system-site-packages porque rclpy, rosbag2_py y los
+# paquetes de mensajes (std_msgs, geometry_msgs, nav_msgs, sensor_msgs,
+# trajectory_msgs, turtlesim) los provee ROS 2 Jazzy, no pip.
+
+pandas==3.0.3       # analyze.py: agregación de métricas
+numpy==1.26.4       # stats_extra.py (y dependencia de pandas y scipy)
+matplotlib==3.6.3   # analyze.py: figuras por escenario
+scipy==1.11.4       # stats_extra.py: Spearman e intervalos de confianza
+requests==2.31.0    # runner.py: llamadas a la API REST del backend
