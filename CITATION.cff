@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "ROS 2 Visual Programming IDE: graph-based orchestration of robotic trajectories"
+abstract: >-
+  Low-code visual programming environment for ROS 2. Robot motion
+  sequences are built by connecting blocks in the browser; a graph
+  evaluator validates them as a path graph and orders them with Kahn's
+  algorithm, and an asynchronous Rust engine executes them natively on
+  ROS 2 through r2r. A declarative hardware abstraction layer drives
+  velocity-controlled mobile bases and joint-position-controlled
+  manipulators. Software version described in the undergraduate thesis
+  "Desarrollo de un entorno de programación visual basado en grafos para
+  la orquestación de trayectorias robóticas bajo el estándar ROS 2",
+  Universidad Militar Nueva Granada, 2026.
+authors:
+  - family-names: "Silva Callejas"
+    given-names: "Juan Camilo"
+    affiliation: "Universidad Militar Nueva Granada"
+  - family-names: "Parada Sepúlveda"
+    given-names: "Fabián"
+    affiliation: "Universidad Militar Nueva Granada"
+version: "v1.0.0"
+date-released: "2026-10-01"
+doi: "10.5281/zenodo.23074929"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23074929"
+    description: "DOI of version v1.0.0 (thesis version)"
+  - type: doi
+    value: "10.5281/zenodo.23074928"
+    description: "Concept DOI (always resolves to the latest version)"
+repository-code: "https://github.com/Juanksilva11/ros2-visual-programming-ide"
+license: Apache-2.0
+keywords:
+  - ROS 2
+  - robotics
+  - visual programming
+  - low-code
+  - directed acyclic graph
+  - Rust
+  - React
